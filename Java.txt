@@ -1,0 +1,102 @@
+1) Integer arr[] = new Integer[3] || int arr[]={1,2,3,4} || int arr[] = new int[4]{1,2,3,4};
+    A) arr.length;
+    B) Arrays.sort(arr): sort array in asceding order
+    C) Arrays.sort(arr,fromIndex,toIndex): sort array in range [fromIndex, toIndex);
+    D) 
+    	class customComparator implements Comparator<Integer>{
+    	    public int compare(Integer a, Integer b){
+    	    	if(a>b){
+    	    	   return -1 //no swapping 
+    	    	}else{
+    	    	   return 1 // swapping
+    	    	}
+    	    }
+    	}
+    
+    	Arrays.sort(arr,new CustomComparator())
+
+
+2) ArrayList<Integer>arr=new ArrayList<Integer>();
+    A) arr.add(value)
+    B) arr.get(index)
+    C) arr.size()
+    D) arr.set(index, new value)
+    E) Collections.sort(arr)
+    F) class customComparator implements Comparator<Integer>{
+    	    public int compare(Integer a, Integer b){
+    	    	if(a>b){
+    	    	   return -1 //no swapping 
+    	    	}else{
+    	    	   return 1 // swapping
+    	    	}
+    	    }
+    	}
+    	Collections.sort(arr,new CustomComparator())
+    G) for creating Arraylist with initial size we need to create our custom function java does 	
+       not have function for this.
+       
+       ensureSize(Arraylist<Integer>arr,int size){
+           for(int i=0;i<size;i++){
+               arr.add(null)
+           }
+       }
+
+3) String arr=""
+    A) arr.length()
+    B) arr.charAt(index)
+    C) arr.equals(new String)
+    D) arr.append(new String) or use + operator
+
+
+4) PriorityQueue<Integer>arr=new PriorityQueue<Integer>() :min Heap
+   PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder()) :max Heap
+    A) arr.add(value)
+    B) arr.peek()
+    C) arr.isEmpty()
+    D) arr.poll()
+
+5) Pair<Integer,String>arr= new Pair<Integer,String>(key,value)
+    A) arr.getKey()
+    B) arr.getValue()
+    
+6) Queue<Integer>arr= new LinkedList<Integer>()
+    A) arr.add(value)
+    B) arr.isEmpty()
+    C) arr.remove(): it return the front value and delete that
+    D) arr.size()
+    
+7) Stack<Integer>arr= new Stack<Integer>()
+    A) arr.push(value)
+    B) arr.peek()
+    C) arr.pop(): it return the top element and delete that
+    D) arr.isEmpty()
+    E) arr.size()
+    
+8) HashMap<Integer,Integer>arr=new HashMap<Integer,Integer>()
+    A) arr.put(key,value)
+    B) arr.size()
+    C) arr.containsKey(key)
+    D) arr.containsValue(value)
+    E) arr.get(key)
+    F) arr.remove(key)
+    G) arr.isEmpty()
+    H) Traversing of hashMap
+    		for(Map.Entry<Integer,Integer>mapElement:arr.entrySet()){
+    			Integer a=mapElement.getKey();
+    			Integer b=mapElement.getValue();
+    		}
+ 
+9) HashSet<Character>arr= new HashSet<Character>()
+    A) arr.add(value);
+    B) arr.size()
+    C) arr.contains(value)
+    D) arr.remove(value)
+    E) arr.isEmpty()
+    F) Traversing of HashSet
+    			for(Character a : arr){
+    			    System.out.println(a);
+    			}
+    
+ 
+    
+    
