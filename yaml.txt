@@ -1,0 +1,61 @@
+Introduction:
+=>  YAML: Yaml Aint Markup Language
+    it is basically a data format used to exchange data. It is simple human readable data used to store data. In Yaml we can store only data
+    we cant store any command in this. 
+=>  Data Serialization: it is process of converting the data object to a format that can be understandable by all the languages and on all
+    platforms.
+=>  Data Deserialization: reading the serialized data is known as data deserialization
+=>  Yaml is used in configuration files on docker kubernetes etc.
+=>  Yaml is case sensitive like c++
+
+Working with YAML Files:
+=>  the yaml file extension is .yaml or .yml
+=>  comment: we use # for comment
+=>  yaml store data in key value format. after key we need to give space
+    eg: key: value
+        key:value(this will give error as there is now space between : and value)
+=>  objects and datatypes in yaml
+    object1:
+        key1: this is string example without any quotes and it is valid but we cant use special characters here like new line operator etc
+        key2: 'we can use single quotes for string and dont know whether we can use special character here or not'
+        key3: "used double quotes for the string and used new line operator \n"
+        key4: 123
+        key5: 12.5
+=>  Boolean values in yaml:
+        we can use true,false or on,off or yes,no for boolean
+=>  lists in yaml: we use - operator to identify the list element
+    arr =[1,"amit",3,4]
+    yaml Representation1:
+        arr:
+          - 1
+          - amit
+          - 3
+          - 4
+    yaml Representation2:
+        arr: [1,"amit",3,4]
+=> Multiline strings: we use | operator to tell yaml that given text is multiline text
+        key: |
+          this is first line
+          this is second line
+          this is 3rd line
+=> string is very large that we dont want to read in multiline but want to write in multiline for better readability we use > operator
+        key: >
+        this is very long string
+        that if we write normaly
+        will not be super readable
+        so we used > operator in this
+        way we written the given string in multiline way
+        but when someone will read this yaml file
+        this string will be treated as single line string
+=> environmental variables: we can use the $ sign to use the variable in yaml files
+        variableValue: $x
+        explanation: In above line the $x will be replaced by the value of x that we will define in environmental variables.
+=> Placeholder: we use {{}} operator for Placeholder
+        key: {{firstName}}
+=> multiple files in single yaml file: we can use multiple yaml file in single yaml file and identify them using --- operator
+        file1: this is file 1
+        ---
+        file2: file 1 end above now we are in file 2.
+
+
+    

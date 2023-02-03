@@ -1,0 +1,14 @@
+Success: 200
+Created: 201 (successfull post request)
+no content: 204 (executing put request but according to given inputs there is no data present that we will update)
+Validation error: 400( Bad request )
+Unauthorized request: 401 (when authorization fails)
+Resource not found: 404
+server exception: 500
+
+
+
+
+
+/{id} : @PathVariable int id
+?id=1&name=amit : @RequestParam int id,@RequestParam String name 

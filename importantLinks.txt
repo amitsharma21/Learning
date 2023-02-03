@@ -1,0 +1,1 @@
+how to load the spring yaml / yml file in spring boot : https://www.youtube.com/watch?v=Y9rVJQgiqpM

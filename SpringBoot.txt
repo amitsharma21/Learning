@@ -1,0 +1,85 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@RestController : inside RestController class we define our endpoints of api i.e URI(Unique Resource Identifier)
+public class HelloWorldController {
+    1) returning simple string message
+    @GetMapping("/hello-world")
+    public String helloWorld(){
+        return "Hello world";
+    }
+
+    2) returning class named HelloWorldBean which will be converted to json format by jackson Automatically
+    @GetMapping("/hello-world-bean")
+    public HelloWorldBean helloWorldBean(){
+        HelloWorldBean obj=new HelloWorldBean("Hello World");
+        return obj; //for each variable inside HelloWorldBean Class make sure there is getter function available then only they will be returned from backend to frontend in json object
+    }
+
+    3) Passing variable in end points(URI: Unique Resource Identifier): to access path variables we will use the same variable name means to access gender path variable we use create gender variable only.
+    @GetMapping("/hello-world/path-variable/{name}/{gender}")
+    public HelloWorldBean helloWorldVariableBean(@PathVariable String name,@PathVariable String gender){
+        return new HelloWorldBean("hello world "+ name);
+    }
+    
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package com.in28minutes.rest.webservices.restfulwebservices.user;
+@Component : we create spring bean with this annotation and we can use it inside RestController Using @Autowired annotation
+public class UserDaoService {
+    private static List<User>users=new ArrayList<>();
+    static {
+        users.add(new User(1,"Adam", LocalDate.now().minusYears(30)));
+        users.add(new User(2,"Eve",LocalDate.now().minusYears(25)));
+        users.add(new User(3,"Jim",LocalDate.now().minusYears(20)));
+    }
+
+    public List<User> findAll(){
+        return users;
+    }
+
+    public User findOne(int id) {
+        Predicate<? super User> predicate = user -> user.getId().equals(id);
+        return users.stream().filter(predicate).findFirst().get();
+    }
+}
+
+
+
+
+package com.in28minutes.rest.webservices.restfulwebservices.user;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+
+@RestController
+public class userResource {
+    ====>1st way to use the @Component bean inside @RestController: Constructor injection
+    private  UserDaoService service;
+    public userResource(UserDaoService service) {
+        this.service = service;
+    }
+
+    ====> 2nd way using @Autowired keyword
+    @Autowired
+    private  UserDaoService service;
+
+    @GetMapping("/users")
+    public List<User>retrieveAllUsers(){
+        return service.findAll();
+    }
+
+    @GetMapping("/users/{id}")
+    public User retrieveUser(@PathVariable int id){
+        return service.findOne(id);
+    }
+
+    @PostMapping("/users")
+    public User createUser(@RequestBody User user ){ //although we sent the json body from frontend but spring boot will Automatically convert it into correct format thus we received the User in Request Body
+        return service.save(user);
+    }
+}
+
