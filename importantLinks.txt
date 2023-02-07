@@ -1,1 +1,7 @@
-how to load the spring yaml / yml file in spring boot : https://www.youtube.com/watch?v=Y9rVJQgiqpM
+1. how to load the spring yaml / yml file in spring boot : https://www.youtube.com/watch?v=Y9rVJQgiqpM
+2. how to parse the array from yaml in spring boot: https://stackoverflow.com/questions/26699385/spring-boot-yaml-configuration-for-a-list-of-strings
+3. How to install docker-engine and docker-desktop: 
+    A. https://docs.docker.com/desktop/install/ubuntu/
+    B. https://docs.docker.com/engine/install/ubuntu/
+    C. https://docs.docker.com/engine/install/linux-postinstall/
+    D. https://www.youtube.com/watch?v=Vplj9b0L_1Y&t=55s

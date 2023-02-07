@@ -1,0 +1,21 @@
+Commands:
+1) docker ps => this command tell us all the running containers in our machine.
+2) docker pull <image-name>:<version> => used to pull the images from docker hub to local machine  
+   eg: docker pull redis
+       docker pull redis:9.6
+3) docker images => this tell us all the images present in our local machine
+4) docker run <image-name>:<version> => it is used to run image means we started our container
+5) ctrl + c => to terminate the container
+6) docker run -d <image-name>:<version>  => -d means it will run the image in detached mode means ctrl+c will not be able to terminate the 
+                                            container. with this command we get the id of the container. that we can use to terminate the 
+                                            cotainer.
+7) docker stop <containerId> => used to stop the container
+8) docker start <containerId> => used to start the container again that we stopped.
+9) docker ps -a => lists all the running and stopped container
+10) docker run -p6000:6379 redis:4.6 => computer port 6000 is listening to the givern redis container.
+11) docker run --name <custom-name-that-you-want-to-give-your-container> redis:4.6 => by default redis give random name to all containers 
+                                                                                      but we can give our custom name to container using 
+                                                                                      --name option.
+12) docker logs <containerId> => used to check the logs of the container
+13) docker exec -it <containerId> /bin/bash => this command is used to open the terminal of container. it is very useful for debugging. 
+14) exit => to exit the terminal we use this command
