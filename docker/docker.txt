@@ -17,7 +17,7 @@ Commands:
                                                                                       but we can give our custom name to container using 
                                                                                       --name option.
 12) docker logs <containerId> => used to check the logs of the container
-13) docker exec -it <containerId> /bin/bash => this command is used to open the terminal of container. it is very useful for debugging and checking logs.
+13) docker exec -it <containerId> /bin/{bash or sh}  => this command is used to open the terminal of container. it is very useful for debugging and checking logs.
 14) exit => to exit the terminal we use this command
 15) docker run -e <ENV_VARIABLE_NAME>=<ENV_VARIABLE_VALUE> <ImageName>:<Version> => -e options lets us add environment variable while running the 
                                                                                     image.
@@ -25,7 +25,6 @@ Commands:
 17) docker network create <network-name> =>  create network in docker.
 18) docker run --net <network-name> <ImageName>:<Version> => way to run the given docker container inside given docker network
 19) docker network rm <network-name> => used to delete the docker network
-
 
         dockar command with all the above options together 
         
@@ -39,3 +38,8 @@ Commands:
 
 20) docker compose -f <yaml file name with path> up => used to run the yaml file containers using docker compose. -f means file
 21) docker compose -f <yaml file name with path> down => used to stop the yaml file  containers using docker compose.
+22) docker rm -f <ContainerId> => it delete/remove the given container permanently from computer
+23) docker rmi <image-repository> => it delete/remove the docker image from computer permanently
+24) docker build -t <image-name>:<version> <location of docker file in host machine from which we want to create the image> => this command    
+                                                                        create the docker image from docker file.
+25) docker tag <image name>:<copy image version/tag>  <paste image name>:<paste image version/tag> => this create the new image from existing image
