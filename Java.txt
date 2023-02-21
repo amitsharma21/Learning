@@ -13,7 +13,7 @@
     	    }
     	}
     
-    	Arrays.sort(arr,new CustomComparator())
+    	Arrays.sort(arr,new CustomComparator()) //!sometime this error Come: Exception in thread "main" java.lang.IllegalArgumentException Comparison method violates its general contract: for this add 2 conditions if there are 3 check and 3 conditions if there are 4 checks and so on.
 
 
 2) ArrayList<Integer>arr=new ArrayList<Integer>();
@@ -40,12 +40,18 @@
                arr.add(null)
            }
        }
+    H) List<String> arr=new ArrayList<String>(Arrays.asList("Initializing the arrayList","Dont create this array before and try to use asList function on that","that will give error"));
 
 3) String arr=""
     A) arr.length()
     B) arr.charAt(index)
     C) arr.equals(new String)
     D) arr.append(new String) or use + operator
+    E) we cant replace the element at given index in string directly but we can use substring 
+       method:
+       string cur="pankaj"
+       char c='d';
+       arr=arr.substring(0,2)+d+arr.substring(3) ====>padkaj
 
 
 4) PriorityQueue<Integer>arr=new PriorityQueue<Integer>() :min Heap
