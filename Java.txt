@@ -60,6 +60,7 @@
     B) arr.peek()
     C) arr.isEmpty()
     D) arr.poll()
+    E) arr.size()
 
 5) Pair<Integer,String>arr= new Pair<Integer,String>(key,value)
     A) arr.getKey()
@@ -103,6 +104,36 @@
     			    System.out.println(a);
     			}
     
- 
-    
-    
+10) Optional<String>obj = Optional.ofNullable("I have taken the String as datatype it can be any other datatype or it can also be null");
+    Optional<Cat>obj = Optional.of("We do not use ofNullable when we are 100% sure that we will never pass null into optional");
+        A) obj.get(): it return the object present inside the optional. 
+        B) obj.isPresent(): It return true if optional contain some value whereas return false if optional contain null
+        C) obj.orElseThrow(): It is exactly similar to obj.get()
+        D) obj.orElse("Return this value"): if optional contains not null value it will return that. but if the optional contains null then it will return the value that we pass as an argument to this fxn.
+        E) obj.orElseGet(): if optional is empty than it will use the lamda method to supply the default value. we need to pass the lamda inside the function
+
+
+11) Lamda Expression:
+    A) FunctionalInterface: It is the interface hanving only one abstract method. this interface could contain other default method or static method but only one abstract method.
+    B) lamda functions can only be used with FunctionalInterface
+    C) Lamda expression is shortcut for defining the implementation of functional Interface.
+    D) Example:
+
+        @FunctionalInterface                                                                                                @FunctionalInterface
+        public interface Printable{                                                                                         public interface Printable{
+            void print(String arg);                                                                                             void print();
+        }                                                                                                                   }                   
+
+        class Solution{                                                                                                     class Solution{
+            public static void main(String[] args){                                                                             public void static main(String[] args){
+                Printable obj = (s) ->{ sout("this is multiline lamda expression );};                                               Printable obj=()-> sout("this is single line lamda expression");
+                obj.print("the above lamda expression is implementation of print fxn that");                                        obj.print();
+            }                                                                                                                }
+        }                                                                                                                  
+
+12) Streams In java:
+    List<int>arr = Arrays.asList(1,2,3,4,5);
+    A) arr.stream().forEach(val -> sout(val)): it convert the arr to stream and print each element of list. after foreach we cant do any operation as its terminal operation
+    B) arr.stream().map(val -> val*10).collect(Collectors.toList()): map is intermediate operation it map the each element of stream to new element and at last each element is collected to list
+    C) arr.stream().filter(val-> val>3).map(val -> val*10): first it filter all the elements means we will only get element greater than 3 and then after that its normal map operation
+    D) arr.stream().filter(val -> val>3).findFirst(): it gives the optinal output null if nothing found or else return the first value.

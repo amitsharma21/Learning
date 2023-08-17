@@ -1,0 +1,8 @@
+1) vi fileName: this create the new file if not exist and open that for editing
+2) cat fileName: this print the content of the given file
+3) free -g: this give the stats regarding the ram usage of computer
+4) nproc: this return the number of cpu in the machine
+5) df -h: it gives the secondary memory related stats
+6) top: if you want to see the above 3 things at place with the help of single command we can use this command
+7) xargs: it is used to pass the output of one command as input argument to other command.
+	 ls | xargs -I{} echo hello {}: this command take the output of ls and pass that to the second command seperated by pipe operator.

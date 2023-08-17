@@ -1,0 +1,4 @@
+import torch: this is used to import the pytorch into given python file
+
+Arrays:
+x= torch.empty()

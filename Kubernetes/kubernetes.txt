@@ -1,0 +1,23 @@
+commands:
+1) kubectl get nodes: this is used to get all the nodes inside the given kubernetes cluster.
+2) kubectl get pod: this give us all the pods available.
+3) kubectl get services: give us all the services running of give cluster
+4) kubectl create -h: this command gives information regarding all the things that we can create using kubectl.
+5) kubectl create deployment nginx-depl --image-nginx : this create the deployment named nginx-depl from image nginx and it 
+           automatically download the image from dockerHub.
+6) kubectl get deployment: this give us all the deployment inside given cluster
+7) kubectl get replicaset: we do not work with pods directly instead we work with deployment. deployment manages all the pods. the is one 
+                           layer between deployment and pods called replicaset. this layer manages all the replicas of the given pod.
+8) kubectl edit deployment <deploymentname>: this let us edit the configuration of given deployment.
+9) kubectl logs <pod-name>: this give us the logs of given pod.
+10) kubectl describe pod <pod-name>: this gives the information regarding given pod. such as which docker image it is running etc.
+11) kubectl exec -it <pod-name> -- bin/bash: in this way we can go inside the interactive terminal of given pod for debugging.
+12) exit: to exit from the given terminal of pod.
+13) kubectl delete deployment <deployment name> : this delete the given deployment along with its replicaset and pods.
+14) kubectl apply -f <fileName>.yaml: with this command we can create the kubernetes deployment, service, and secret from the yaml file.
+15) kubectl delete -f <fileName>.yaml: with this command we can delete the given deployment,service, and secret that we created using given file
+16) kubectl describe service <service-name>: this gives all the info regarding given service
+17) kubectl get deployment <deployment-name> -o yaml > <new-file-name>: this will put the configuration of deployment file inside the file
+                                                                        name that we passed as last argument.
+18) kubectl get all: it return all the pods, replicaset, services and deployment running inside the kubernetes cluster
+19) kubectl get secret: it return all the secrets

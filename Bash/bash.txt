@@ -1,0 +1,161 @@
+1) Each Bash script start with the line #! /bin/bash  
+#!: shebang
+
+2) echo "printing string"
+   echo $variable
+
+3) permission of file:
+    _rwxrw_r__: there are 10 characters in this. first character represent the type of file whether it is file or directory
+                next 3 characters are the permission for super owner
+                next 3 characters are the permission for the group members
+                next 3 characters are the permission for rest of members.
+
+    changing the permission of the file: chmod [class][operator][permision] file name
+        class: u(user),g(group),o(other),a(All)
+        operator: +,-
+        permission: r,w,x
+
+        eg: chmod ugo+wx file.txt
+            chmod uo-x file.txt
+            chmod +x file.txt => this will add the execute permision to all the user together this is alternate to chmod a+x file.txt
+
+4) Comments:
+    single line comment: #single line comment start with # symbol
+    multiline comment: <<COMMENT
+                            this is fist line of comment
+                            this is second line of comment
+                        COMMENT
+
+5) Quotes: single quotes and double quote behave differently in bash scripting if used with variables. normaly they work same
+    eg: name = "amit"
+        echo "my name is $name" ===o/p===> my name is amit
+
+        name = "amit"
+        echo 'my name is $name' ===o/p===> my name is $name
+
+    basically we can not access variables inside single quotes.
+
+6) Variables: A) variables are case sensitive in bash
+              B) while assigning value there shoud not be space on either side of ()=) eg. a = 12 , b =23, c= 23  ---> all the 3 assignments are incorrect as there are space around (=).
+              C) use quotes either single of double while defining variable if the value is more than one word. eg. name="Amit Sharma"
+              D) no need to mention the data type of variable like we do in c++(int a=12) bash will dynamically assign the data type to the variable.
+              E) initializing the variable: we dont use $ while initializing
+                 name="Amit Sharma"
+              F) while reading the value (or when we use the variable we use $): echo "my name is $name"
+              G) Command Line Arguments: 
+                we pass the command line argument while running the script. eg: ./bash_script arg1 arg2 'arg3 with spaces' arg4
+                $0 specifies the name of the script to be invoked.
+                $1-$9 stores the names of the first 9 arguments or can be used as the arguments' positions.
+                $# specifies the total number (count) of arguments passed to the script.
+                $* stores all the command line arguments by joining them together.
+                $@ stores the list of arguments as an array.
+                $? specifies the process ID of the current script.
+                $$ specifies the exit status of the last command or the most recent execution process.
+                $! shows ID of the last background job.
+                
+                we can read the command line argument with the help of $0 to $9
+                we can also read the commnad line argument with the help of array: arr=("$@") echo ${arr[0]}
+
+              
+              H) difference between ${} and $():
+              ${}: it is used to differentiate the variables from normal string. eg=> name=Amit
+                                                                                      echo "my name is $nameSharma"=> it will treat the variable as $nameSharma but that is wrong as our var name is $name
+                                                                                      echo "my name is ${Amit}Sharma"=> it will print my name is AmitSharma
+
+              $(): it is used to evaluate the result of command eg: echo "today date is $date" => it will not work fine as it will treat $date as variable which we have not defined
+                                                                    echo "today date is $(date)" => it will print today date is wednesday 16th August ...
+                   it is also called command substitution 
+
+7) Read User input: similar to cin in c++. we dont use the $ sign with read.
+                A) read <var_name>
+                B) read <var1> <var2> <var3>: it is used to read multiple values from user.
+                C) read : if we dont use any variable after read than bydefault the bash will store the values in $REPLY variable
+                    eg: read
+                       echo "entered value is: $REPLY"
+                D) read -p PROMPT <variable_name> : used to read the value with prompt.
+                    eg: read -p "name:" <variable_name>  
+                        read -P "reading multiple values with prompt" <var1> <var2> <var3>
+                E) read -sp PROMPT <variable_name>: used to read the value in silent mode in this whatever user enter did not get display on screen similar to what ubuntu do for password
+                F) read -a array: in this all the user entered values get stored in array 
+                   accessing those value ===> echo "${array[0]}, ${array[1]}"
+
+8) sleep in bash: it is utility provided by bash to stop the execution of script for some fixed amount of time.
+    sleep number[suffix]
+    possible value of suffix: d(day),h(hour),m(minute),s(second) ==> if we dont provide any suffix then default suffix is second
+    sleep 9 => sleep for 9 second
+    sleep 9m => sleep for 9 minutes
+    sleep 1m 9s => sleep for 1 minute 9 second
+    sleep 2d 1m 9s => sleep for 2 day 1 minute 9seconds
+
+9) Arithematic operators: Bash support 11 Arithematic operator: 
+    + => addition
+    - => substraction
+    * => multiplication
+    / => division
+    % => modulo
+    += => increment by constant  :: eg: $((x+=y)) value of x is incremented by y
+    -= => decrement by constant  :: eg: $((x+=y)) value of x is decremented by y
+    *= => multiplication by constant  :: :: eg: $((x*=y)) value of x is multiplied by y
+    /= => division by constant
+    %= => modulo by constant
+    ** => power  :: eg: $((x**y)) value of x is not changed in this but we can store the result in other variable
+    A) way to do the arithematic operation
+        x=8
+        y=2
+        sum=$((x+y)) ===> o/p sum=10
+        increment=$((x+=y)) ===> o/p increment=10
+        pow=$((x**y)) ===> o/p pow=64
+    B) let Command: it is command that allow us to perform arithematic operation
+        let "sum=$((x+y))"
+        let "increment=$((x+=y))"
+        let "pow=$((x**y))"
+
+10) If statement:
+                A)  if [ condition ]; then  => in this line spacing is important
+                        echo "in this line spacing is not important "
+                    fi
+                B)  nested If
+                    if [ condition ]; then
+                        if [ condition ]; then
+                        echo "example of nested if"
+                        fi
+                    fi
+                C) AND operator condition
+                    if [ condition1 ] && [ condition2 ]; then
+                    fi
+                D) OR operator condition
+                    if [ condition1 ] || [ condition2 ]; then
+                    fi
+
+11) if-else Statement: 
+                if [ condition ]; then
+                    echo "condition is true"
+                else
+                    echo "condition is false"
+                fi
+
+12) if-else-if statement:
+                if [ condition ];then
+                    echo "if condition is true"
+                elif [ condition ]; then
+                    echo "elif condition is true"
+                else
+                    echo "neither if nor elif condition is true"
+                fi
+
+13) switch case:
+        read -p "Do you likes programming" ans
+        case $ans in
+            Yes|yes|y|Y)
+                echo "Thats amazing"
+                ;;
+            No|no|n|N)
+                echo "its easy lets start learning"
+                ;;
+            *)
+                echo "its default case"
+                ;;
+        esac
+
+14) for loop:
+

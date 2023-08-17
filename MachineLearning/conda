@@ -1,0 +1,11 @@
+conda create -n <env-name> python=3.6 : this is used to create the new conda environment
+conda activate <env-name> : used to activate the conda environment
+conda deactivate: deactivate the current conda environment
+conda env list: list all the conda environment present
+conda env remove --name <env_name>: delete conda environment and all its packages
+conda list: list all the packages installed inside the conda environment
+conda install scipy=1.5.2 numpy=1.19.1 matplotlib=3.3.0 pandas=1.1.0 scikit-learn=0.23.2: used to install the specific version package 
+                                                                                          inside conda environment
+conda config --remove channels <channel name>: used to remove the channel 
+conda config --add channels <channel name>: used to add the channel
+

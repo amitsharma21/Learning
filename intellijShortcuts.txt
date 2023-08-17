@@ -1,0 +1,7 @@
+ctrl + alt + n => make function inline
+shift + f6 => rename Variable
+ctrl + w => keep selecting the code within bound and if continously press then keep increasing the bound
+ctrl + alt + l => format code
+Alt + enter => split the function arguments in different lines
+alt + j => change the variable at multiple place simultaneously
+.val => we do this to move the boolean function from if condition to variable and then we use that variable inside if condition
