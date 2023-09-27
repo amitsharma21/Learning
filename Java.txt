@@ -52,6 +52,10 @@
        string cur="pankaj"
        char c='d';
        arr=arr.substring(0,2)+d+arr.substring(3) ====>padkaj
+    F) arr.compareTo(new String)-> 
+    		return 0 if arr is equal to new String,
+    		return positive int if arr is lexigraphically greater than new String 
+    		return negative int if arr is lexigraphically smaller than new String
 
 
 4) PriorityQueue<Integer>arr=new PriorityQueue<Integer>() :min Heap
@@ -61,7 +65,26 @@
     C) arr.isEmpty()
     D) arr.poll()
     E) arr.size()
-
+    F) PriorityQueue with Pair:
+    
+    	class maxHeapComparator implements Comparator<Pair<Integer,Integer>>{
+	    public int compare(Pair<Integer,Integer>A,Pair<Integer,Integer>B){
+		if(A.key>B.key) return -1;
+		else if(A.key<B.key) return 1;
+		else return 0;
+	    }
+	}
+	
+	class minHeapComparator implements Comparator<Pair<Integer,Integer>>{
+	    public int compare(Pair<Integer,Integer>A,Pair<Integer,Integer>B){
+		if(A.key<B.key) return -1;
+		else if(A.key>B.key) return 1;
+		else return 0;
+	    }
+	}
+	PriorityQueue<Pair<Integer,Integer>>minHeap=new PriorityQueue<>(new minHeapCustomComparator()); //min Heap
+	PriorityQueue<Pair<Integer,Integer>>maxHeap=new PriorityQueue<>(new maxHeapCustomComparator());	//max Heap
+	
 5) Pair<Integer,String>arr= new Pair<Integer,String>(key,value)
     A) arr.getKey()
     B) arr.getValue()
@@ -92,6 +115,15 @@
     			Integer a=mapElement.getKey();
     			Integer b=mapElement.getValue();
     		}
+    I) traversing in another way: arr.entrySet().stream().forEach(entry->{
+    					int a=entry.getKey();
+    					int b=entry.getValue();
+    					});
+    J) traversing in sorted keys order:
+    	arr.entrySet().stream().sorted(Map.Entry.comparingByKey().forEach(entry->{
+    		int a= entry.getKey();
+    		int b= entry.getValue();
+    		}))
  
 9) HashSet<Character>arr= new HashSet<Character>()
     A) arr.add(value);
@@ -101,9 +133,15 @@
     E) arr.isEmpty()
     F) Traversing of HashSet
     			for(Character a : arr){
-    			    System.out.println(a);
+    			    System.out.println(a);10
     			}
-    
+
+A)Swap 2 number inside function
+B)Pair in java
+C)Priority_Queue with pair
+
+
+   
 10) Optional<String>obj = Optional.ofNullable("I have taken the String as datatype it can be any other datatype or it can also be null");
     Optional<Cat>obj = Optional.of("We do not use ofNullable when we are 100% sure that we will never pass null into optional");
         A) obj.get(): it return the object present inside the optional. 
@@ -137,3 +175,6 @@
     B) arr.stream().map(val -> val*10).collect(Collectors.toList()): map is intermediate operation it map the each element of stream to new element and at last each element is collected to list
     C) arr.stream().filter(val-> val>3).map(val -> val*10): first it filter all the elements means we will only get element greater than 3 and then after that its normal map operation
     D) arr.stream().filter(val -> val>3).findFirst(): it gives the optinal output null if nothing found or else return the first value.
+    
+13) Future in Java:
+

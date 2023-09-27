@@ -158,4 +158,120 @@
         esac
 
 14) for loop:
+    A) For loop in range increment:
+        for i in {1..10}
+        do
+        echo $i
+        done
+    B) For loop with increment:
+        for i in {1..10..2}
+        do
+        echo $if
+        done
+    C) for loop in range decrement:
+        for i in {10..1}
+        do
+        echo $i
+        done
+    D) for loop with decrement:
+        for i in {10..1..2}
+        do 
+        echo $i
+        done
+    E) for((i=1;i<=10;i++))
+        do
+        echo $i
+        done
+    F) Break and continue statement statement
+        for((i=1;i<=10;i+=2))
+        do
+
+        if[ $i -eq 2 ]; then
+        continue
+        fi
+
+        if [ $i==5 ]; then
+        break
+        fi
+
+        echo $i
+        done
+    G) infinite for loop
+        for((;;))
+        do
+        echo "hello"
+        sleep 1s
+        done
+
+15) while Loop:
+    A)  i=0
+    
+        while((i<=10 || i<=5))
+        do
+        ((i+=1))
+        if [ $i -eq 2 ]; then
+        continue
+        fi
+
+        if [ $i -eq 10 ]; then
+        break
+        fi
+
+        echo $i
+        done
+
+16) functions:
+    A)  function_name(){
+
+        } =====> this is function defination like in cpp without return type
+        function_name=====> function call just need to write the function name
+    B)  passing argument: we pass argument in similar way as we pass from terminal and we access then like $1, $2, $3 execute
+        eg: function_name(){
+            echo "first arg: $1"
+            echo "second arg: $2"
+        }
+        function_name "hello" "amit sharma"
+    C)  variable scope: read this article => https://www.javatpoint.com/bash-functions
+    D)  return statement:
+        D.1) to return numeric value in range [0,255]
+            function_name(){
+                return 12;
+            }
+            function_name
+            echo "we get return value with the help of #?" ====> to extract the return value we use #? keyword
+        D.2) to return the string values: we send the value to stdout using echo function
+            function_name(){
+                echo "passing the value to stdout using echo"
+            }
+            return_value="$(function_name)"
+            echo "return value: $return value"
+    E)  Overriding Comand: we can override the linux command by creating the function with the exact same name as of command
+        eg: echo(){
+            builtin echo "overriding the echo command"
+            builtin echo $1
+        }
+        echo "this will call our function not inbuilt echo command"
+
+        to access the inbuilt command we use the builtin keyword before command
+
+
+17) Strings:
+    str1="String1 dummy"
+    str2="String2 dummy"
+    A) equal operator: =
+        if [ $str1 = $str2 ]; then
+        if [[ $str1=$str2 ]]; then
+    B) Not equal operator: !=
+        if [ $str1 != $str2 ]; then
+        if [[ $str1!=$str2 ]]; then
+    C) less than operator: \<
+        if [ $str1 \< $str2 ]; then
+    D) greater than operator: \>
+        if [ $str1 \> $str2 ]; then
+    E) check whether the string length is more than 0: -n operand
+        if [ -n $str1 ]; then
+    F) check whether string length is 0: -z operand
+        if [ -z $str1 ]; then
+    G) Length of String:
+        length=${#str}
 
